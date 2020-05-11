@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI.gd" type="Script" id=1]
+
+[node name="UI" type="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -52.0
+margin_right = 125.0
+margin_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 243.0
+margin_bottom = 97.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 44.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerLabel" type="Label" parent="VBoxContainer/Grid"]
+margin_top = 3.0
+margin_right = 44.0
+margin_bottom = 17.0
+text = "Server:"
+
+[node name="ServerButton" type="Button" parent="VBoxContainer/Grid"]
+margin_left = 48.0
+margin_right = 236.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shutdown server"
+
+[node name="ClientLabel" type="Label" parent="VBoxContainer/Grid"]
+margin_top = 27.0
+margin_right = 44.0
+margin_bottom = 41.0
+text = "Client:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Grid"]
+margin_left = 48.0
+margin_top = 24.0
+margin_right = 236.0
+margin_bottom = 44.0
+
+[node name="AddressInput" type="TextEdit" parent="VBoxContainer/Grid/HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+readonly = true
+
+[node name="ConnectButton" type="Button" parent="VBoxContainer/Grid/HBoxContainer"]
+margin_left = 124.0
+margin_right = 188.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 236.0
+margin_bottom = 68.0
+custom_constants/separation = 20
+
+[node name="Clients" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 236.0
+margin_bottom = 72.0
+
+[node name="NotConnected" type="Label" parent="VBoxContainer"]
+modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
+margin_top = 76.0
+margin_right = 236.0
+margin_bottom = 90.0
+text = "(not connected)"
+align = 1
+[connection signal="pressed" from="VBoxContainer/Grid/ServerButton" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="VBoxContainer/Grid/HBoxContainer/ConnectButton" to="." method="_on_connect_pressed"]
