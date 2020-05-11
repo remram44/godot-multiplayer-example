@@ -4,6 +4,7 @@ var Character = preload("res://Character.tscn")
 var Player = preload("res://Player.tscn")
 
 var local_players = []
+var controls_to_player = {}
 
 func random_color():
 	return Color(rand_range(0.25, 1.0), rand_range(0.25, 1.0), rand_range(0.25, 1.0))
@@ -22,6 +23,7 @@ func add_local_player(controls):
 	character.controller = player
 
 	local_players.append(player)
+	controls_to_player[controls] = player
 
 	for i in len(local_players):
 		local_players[i].anchor_top = 1.0 / len(local_players) * i
@@ -30,5 +32,8 @@ func add_local_player(controls):
 func _ready():
 	randomize()
 
-	add_local_player("key1")
-	add_local_player("key2")
+func _process(_delta):
+	for controls in ["key1", "key2"]:
+		if Input.is_action_just_pressed("%s_jump" % controls):
+			if not controls_to_player.has(controls):
+				add_local_player(controls)
