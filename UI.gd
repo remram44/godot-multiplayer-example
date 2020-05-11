@@ -6,12 +6,14 @@ signal req_disconnect()
 signal req_add_player(player_name)
 signal req_remove_player(player_name)
 signal req_kick_client(client_id)
+signal req_start()
 
 onready var host_button = $VBoxContainer/Grid/ServerButton
 onready var connect_button = $VBoxContainer/Grid/HBoxContainer/ConnectButton
 onready var address_textbox = $VBoxContainer/Grid/HBoxContainer/AddressInput
 onready var clients_list = $VBoxContainer/Clients
 onready var not_connected_label = $VBoxContainer/NotConnected
+onready var start_control = $VBoxContainer/StartControl
 
 var UiClient = preload("res://UiClient.tscn")
 
@@ -25,6 +27,7 @@ func hosted_server():
 	connect_button.disabled = true
 	address_textbox.readonly = true
 	not_connected_label.visible = false
+	start_control.visible = true
 
 func connected(address):
 	_reset()
@@ -47,6 +50,7 @@ func _reset():
 	connect_button.text = "Connect"
 	connect_button.disabled = false
 	not_connected_label.visible = true
+	start_control.visible = false
 	clients = {}
 	for child in clients_list.get_children():
 		child.queue_free()
@@ -93,3 +97,6 @@ func _on_connect_pressed():
 		emit_signal("req_disconnect")
 	else:
 		emit_signal("req_connect", address_textbox.text)
+
+func _on_start_pressed():
+	emit_signal("req_start")

@@ -99,5 +99,23 @@ margin_right = 236.0
 margin_bottom = 90.0
 text = "(not connected)"
 align = 1
+
+[node name="StartControl" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 94.0
+margin_right = 236.0
+margin_bottom = 138.0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/StartControl"]
+margin_right = 236.0
+margin_bottom = 20.0
+custom_constants/separation = 20
+
+[node name="Start" type="Button" parent="VBoxContainer/StartControl"]
+margin_top = 24.0
+margin_right = 236.0
+margin_bottom = 44.0
+text = "Start"
 [connection signal="pressed" from="VBoxContainer/Grid/ServerButton" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Grid/HBoxContainer/ConnectButton" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartControl/Start" to="." method="_on_start_pressed"]

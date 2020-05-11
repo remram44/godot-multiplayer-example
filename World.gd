@@ -76,3 +76,6 @@ func _on_req_add_player(player_name):
 
 func _on_req_remove_player(player_name):
 	print("req: remove player %s" % player_name)
+
+func _on_req_start():
+	$UI.visible = false
