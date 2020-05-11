@@ -22,6 +22,8 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 4 )
 
+[node name="Players" type="Node" parent="."]
+
 [node name="UI" parent="." instance=ExtResource( 2 )]
 [connection signal="req_add_player" from="UI" to="." method="_on_req_add_player"]
 [connection signal="req_connect" from="UI" to="." method="_on_req_connect"]
