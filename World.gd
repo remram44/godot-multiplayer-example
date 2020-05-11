@@ -20,7 +20,7 @@ func add_local_player(controls):
 	var player = Player.instance()
 	player.controls = controls
 	add_child(player)
-	character.controller = player
+	player.character = character
 
 	local_players.append(player)
 	controls_to_player[controls] = player
