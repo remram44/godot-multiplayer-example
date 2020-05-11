@@ -20,3 +20,259 @@ script = ExtResource( 1 )
 transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
+
+[node name="UI" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 243.0
+margin_bottom = 333.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="UI/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 44.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerLabel" type="Label" parent="UI/VBoxContainer/Grid"]
+margin_top = 3.0
+margin_right = 44.0
+margin_bottom = 17.0
+text = "Server:"
+
+[node name="ServerButton" type="Button" parent="UI/VBoxContainer/Grid"]
+margin_left = 48.0
+margin_right = 236.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shutdown server"
+
+[node name="ClientLabel" type="Label" parent="UI/VBoxContainer/Grid"]
+margin_top = 27.0
+margin_right = 44.0
+margin_bottom = 41.0
+text = "Client:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer/Grid"]
+margin_left = 48.0
+margin_top = 24.0
+margin_right = 236.0
+margin_bottom = 44.0
+
+[node name="AddressInput" type="TextEdit" parent="UI/VBoxContainer/Grid/HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "88.163.200.50"
+readonly = true
+
+[node name="ConnectButton" type="Button" parent="UI/VBoxContainer/Grid/HBoxContainer"]
+margin_left = 124.0
+margin_right = 188.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="UI/VBoxContainer"]
+margin_top = 48.0
+margin_right = 236.0
+margin_bottom = 68.0
+custom_constants/separation = 20
+
+[node name="Clients" type="VBoxContainer" parent="UI/VBoxContainer"]
+margin_top = 72.0
+margin_right = 236.0
+margin_bottom = 326.0
+
+[node name="Client1" type="PanelContainer" parent="UI/VBoxContainer/Clients"]
+self_modulate = Color( 2, 2, 2, 1 )
+margin_right = 236.0
+margin_bottom = 114.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/Clients/Client1"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 229.0
+margin_bottom = 107.0
+
+[node name="Client" type="HBoxContainer" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer"]
+margin_right = 222.0
+margin_bottom = 14.0
+
+[node name="Address" type="Label" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/Client"]
+margin_right = 222.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "(local)"
+
+[node name="KickButton" type="Button" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/Client"]
+visible = false
+margin_left = 184.0
+margin_right = 222.0
+margin_bottom = 20.0
+text = "Kick"
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer"]
+margin_top = 18.0
+margin_right = 222.0
+margin_bottom = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 215.0
+margin_bottom = 75.0
+
+[node name="Player1" type="HBoxContainer" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 20.0
+
+[node name="Name" type="Label" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer/VBoxContainer/Player1"]
+margin_top = 3.0
+margin_right = 140.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Remi"
+
+[node name="Button" type="Button" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer/VBoxContainer/Player1"]
+margin_left = 144.0
+margin_right = 208.0
+margin_bottom = 20.0
+text = "Remove"
+
+[node name="Player2" type="HBoxContainer" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 208.0
+margin_bottom = 44.0
+
+[node name="Name" type="Label" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer/VBoxContainer/Player2"]
+margin_top = 3.0
+margin_right = 140.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Vicky"
+
+[node name="Button" type="Button" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer/VBoxContainer/Player2"]
+margin_left = 144.0
+margin_right = 208.0
+margin_bottom = 20.0
+text = "Remove"
+
+[node name="Add" type="Button" parent="UI/VBoxContainer/Clients/Client1/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 208.0
+margin_bottom = 68.0
+text = "Add local player"
+
+[node name="Client2" type="PanelContainer" parent="UI/VBoxContainer/Clients"]
+self_modulate = Color( 1.4, 1.4, 1.4, 1 )
+margin_top = 118.0
+margin_right = 236.0
+margin_bottom = 184.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/Clients/Client2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 229.0
+margin_bottom = 59.0
+
+[node name="Client" type="HBoxContainer" parent="UI/VBoxContainer/Clients/Client2/VBoxContainer"]
+margin_right = 222.0
+margin_bottom = 20.0
+
+[node name="Address" type="Label" parent="UI/VBoxContainer/Clients/Client2/VBoxContainer/Client"]
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "5.12.25.124:33484"
+
+[node name="KickButton" type="Button" parent="UI/VBoxContainer/Clients/Client2/VBoxContainer/Client"]
+margin_left = 184.0
+margin_right = 222.0
+margin_bottom = 20.0
+text = "Kick"
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/VBoxContainer/Clients/Client2/VBoxContainer"]
+margin_top = 24.0
+margin_right = 222.0
+margin_bottom = 52.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/Clients/Client2/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 215.0
+margin_bottom = 21.0
+
+[node name="Player1" type="Label" parent="UI/VBoxContainer/Clients/Client2/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 14.0
+text = "Clement"
+
+[node name="Client3" type="PanelContainer" parent="UI/VBoxContainer/Clients"]
+self_modulate = Color( 1.4, 1.4, 1.4, 1 )
+margin_top = 188.0
+margin_right = 236.0
+margin_bottom = 254.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/Clients/Client3"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 229.0
+margin_bottom = 59.0
+
+[node name="Client" type="HBoxContainer" parent="UI/VBoxContainer/Clients/Client3/VBoxContainer"]
+margin_right = 222.0
+margin_bottom = 20.0
+
+[node name="Address" type="Label" parent="UI/VBoxContainer/Clients/Client3/VBoxContainer/Client"]
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "192.17.174.18:45397"
+
+[node name="KickButton" type="Button" parent="UI/VBoxContainer/Clients/Client3/VBoxContainer/Client"]
+margin_left = 184.0
+margin_right = 222.0
+margin_bottom = 20.0
+text = "Kick"
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/VBoxContainer/Clients/Client3/VBoxContainer"]
+margin_top = 24.0
+margin_right = 222.0
+margin_bottom = 52.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer/Clients/Client3/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 215.0
+margin_bottom = 21.0
+
+[node name="Player1" type="Label" parent="UI/VBoxContainer/Clients/Client3/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 14.0
+text = "Josua"
