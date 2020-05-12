@@ -4,7 +4,7 @@ export(Color) var color = Color(0.25, 0.25, 1.0) setget _set_color
 
 const GRAVITY = 20.0
 const JUMP_SPEED = 6.0
-const WALK_RATIO = 0.05
+const WALK_RATIO = 0.1
 const WALK_SPEED = 5.0
 
 var controlling_peer_id = null
