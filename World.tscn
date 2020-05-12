@@ -31,4 +31,3 @@ material/0 = SubResource( 4 )
 [connection signal="req_host_server" from="UI" to="." method="_on_req_host_server"]
 [connection signal="req_kick_client" from="UI" to="." method="_on_req_kick_client"]
 [connection signal="req_remove_player" from="UI" to="." method="_on_req_remove_player"]
-[connection signal="req_start" from="UI" to="." method="_on_req_start"]

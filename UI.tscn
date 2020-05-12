@@ -22,7 +22,7 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 243.0
-margin_bottom = 97.0
+margin_bottom = 145.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,7 +47,7 @@ margin_right = 236.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Shutdown server"
+text = "Host server"
 
 [node name="ClientLabel" type="Label" parent="VBoxContainer/Grid"]
 margin_top = 27.0
@@ -67,7 +67,6 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-readonly = true
 
 [node name="ConnectButton" type="Button" parent="VBoxContainer/Grid/HBoxContainer"]
 margin_left = 124.0
@@ -75,7 +74,6 @@ margin_right = 188.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-disabled = true
 text = "Connect"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -100,22 +98,17 @@ margin_bottom = 90.0
 text = "(not connected)"
 align = 1
 
-[node name="StartControl" type="VBoxContainer" parent="VBoxContainer"]
-visible = false
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 margin_top = 94.0
 margin_right = 236.0
-margin_bottom = 138.0
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/StartControl"]
-margin_right = 236.0
-margin_bottom = 20.0
+margin_bottom = 114.0
 custom_constants/separation = 20
 
-[node name="Start" type="Button" parent="VBoxContainer/StartControl"]
-margin_top = 24.0
+[node name="Start" type="Button" parent="VBoxContainer"]
+margin_top = 118.0
 margin_right = 236.0
-margin_bottom = 44.0
+margin_bottom = 138.0
 text = "Start"
 [connection signal="pressed" from="VBoxContainer/Grid/ServerButton" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Grid/HBoxContainer/ConnectButton" to="." method="_on_connect_pressed"]
-[connection signal="pressed" from="VBoxContainer/StartControl/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

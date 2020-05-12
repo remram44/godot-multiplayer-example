@@ -27,6 +27,9 @@ func setup(client_id, address, mode, is_self):
 	self.mode = mode
 	self.is_self = is_self
 
+	if add_button != null:
+		_ready()
+
 func _ready():
 	if is_self:
 		self.self_modulate = COLOR_SELF

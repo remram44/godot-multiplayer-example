@@ -7,6 +7,8 @@ const JUMP_SPEED = 6.0
 const WALK_RATIO = 0.05
 const WALK_SPEED = 5.0
 
+var controlling_peer_id = null
+
 var movement = Vector3()
 var jump = false
 
@@ -50,3 +52,8 @@ puppet func network_update(r_position, r_speed, r_movement):
 	translation = r_position
 	speed = r_speed
 	movement = r_movement
+
+master func set_input(new_movement, new_jump):
+	if not get_tree().has_network_peer() or get_tree().get_rpc_sender_id() == controlling_peer_id:
+		movement = new_movement
+		jump = jump or new_jump  # Make sure we jump at least once
