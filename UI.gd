@@ -7,11 +7,11 @@ signal req_add_player(player_name, controls)
 signal req_remove_player(player_name)
 signal req_kick_client(client_id)
 
-onready var host_button = $VBoxContainer/Grid/ServerButton
-onready var connect_button = $VBoxContainer/Grid/HBoxContainer/ConnectButton
-onready var address_textbox = $VBoxContainer/Grid/HBoxContainer/AddressInput
-onready var clients_list = $VBoxContainer/Clients
-onready var not_connected_label = $VBoxContainer/NotConnected
+onready var host_button = $PanelContainer/VBoxContainer/Grid/ServerButton
+onready var connect_button = $PanelContainer/VBoxContainer/Grid/HBoxContainer/ConnectButton
+onready var address_textbox = $PanelContainer/VBoxContainer/Grid/HBoxContainer/AddressInput
+onready var clients_list = $PanelContainer/VBoxContainer/Clients
+onready var not_connected_label = $PanelContainer/VBoxContainer/NotConnected
 
 var UiClient = preload("res://UiClient.tscn")
 

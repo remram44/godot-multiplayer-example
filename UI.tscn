@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI.gd" type="Script" id=1]
 
-[node name="UI" type="PanelContainer"]
+[node name="UI" type="CenterContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -14,11 +14,12 @@ margin_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 250.0
+margin_bottom = 152.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 243.0
@@ -27,7 +28,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Grid" type="GridContainer" parent="VBoxContainer"]
+[node name="Grid" type="GridContainer" parent="PanelContainer/VBoxContainer"]
 margin_right = 236.0
 margin_bottom = 44.0
 columns = 2
@@ -35,13 +36,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ServerLabel" type="Label" parent="VBoxContainer/Grid"]
+[node name="ServerLabel" type="Label" parent="PanelContainer/VBoxContainer/Grid"]
 margin_top = 3.0
 margin_right = 44.0
 margin_bottom = 17.0
 text = "Server:"
 
-[node name="ServerButton" type="Button" parent="VBoxContainer/Grid"]
+[node name="ServerButton" type="Button" parent="PanelContainer/VBoxContainer/Grid"]
 margin_left = 48.0
 margin_right = 236.0
 margin_bottom = 20.0
@@ -49,26 +50,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Host server"
 
-[node name="ClientLabel" type="Label" parent="VBoxContainer/Grid"]
+[node name="ClientLabel" type="Label" parent="PanelContainer/VBoxContainer/Grid"]
 margin_top = 27.0
 margin_right = 44.0
 margin_bottom = 41.0
 text = "Client:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Grid"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Grid"]
 margin_left = 48.0
 margin_top = 24.0
 margin_right = 236.0
 margin_bottom = 44.0
 
-[node name="AddressInput" type="TextEdit" parent="VBoxContainer/Grid/HBoxContainer"]
+[node name="AddressInput" type="TextEdit" parent="PanelContainer/VBoxContainer/Grid/HBoxContainer"]
 margin_right = 120.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ConnectButton" type="Button" parent="VBoxContainer/Grid/HBoxContainer"]
+[node name="ConnectButton" type="Button" parent="PanelContainer/VBoxContainer/Grid/HBoxContainer"]
 margin_left = 124.0
 margin_right = 188.0
 margin_bottom = 20.0
@@ -79,18 +80,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
 margin_top = 48.0
 margin_right = 236.0
 margin_bottom = 68.0
 custom_constants/separation = 20
 
-[node name="Clients" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Clients" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 72.0
 margin_right = 236.0
 margin_bottom = 72.0
 
-[node name="NotConnected" type="Label" parent="VBoxContainer"]
+[node name="NotConnected" type="Label" parent="PanelContainer/VBoxContainer"]
 modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
 margin_top = 76.0
 margin_right = 236.0
@@ -98,17 +99,17 @@ margin_bottom = 90.0
 text = "(not connected)"
 align = 1
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer"]
 margin_top = 94.0
 margin_right = 236.0
 margin_bottom = 114.0
 custom_constants/separation = 20
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="PanelContainer/VBoxContainer"]
 margin_top = 118.0
 margin_right = 236.0
 margin_bottom = 138.0
 text = "Start"
-[connection signal="pressed" from="VBoxContainer/Grid/ServerButton" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="VBoxContainer/Grid/HBoxContainer/ConnectButton" to="." method="_on_connect_pressed"]
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Grid/ServerButton" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Grid/HBoxContainer/ConnectButton" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
