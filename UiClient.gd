@@ -13,6 +13,7 @@ onready var players_list = $VBoxContainer/PanelContainer/VBoxContainer/VBoxConta
 onready var add_button = $VBoxContainer/PanelContainer/VBoxContainer/Add
 
 var UiPlayer = preload("res://UiPlayer.tscn")
+var UiAddPlayerPopup = preload("res://UiAddPlayerPopup.tscn")
 
 var client_id
 var address
@@ -54,11 +55,13 @@ func remove_player(player_name):
 	player.queue_free()
 
 func _on_add_pressed():
-	# TODO: Pick name via popup
-	var id = 0
-	while players.has("player%d" % id):
-		id += 1
-	emit_signal("req_add_player", "player%d" % id)
+	var popup = UiAddPlayerPopup.instance()
+	popup.connect("add_player", self, "_on_add_player")
+	get_tree().root.add_child(popup)
+	popup.popup_centered_minsize()
+
+func _on_add_player(player_name):
+	emit_signal("req_add_player", player_name)
 
 func _on_kick_pressed():
 	emit_signal("req_kick_client", client_id)

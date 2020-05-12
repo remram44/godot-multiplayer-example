@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UiAddPlayerPopup.gd" type="Script" id=1]
+
+[node name="AddPlayerPopup" type="Popup"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+popup_exclusive = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 154.0
+margin_bottom = 119.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 147.0
+margin_bottom = 14.0
+text = "Add player:"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 147.0
+margin_bottom = 22.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 147.0
+margin_bottom = 88.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_right = 57.0
+margin_bottom = 14.0
+text = "Name:"
+
+[node name="Name" type="TextEdit" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_left = 61.0
+margin_right = 147.0
+margin_bottom = 14.0
+
+[node name="ControlLabel" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_top = 33.0
+margin_right = 57.0
+margin_bottom = 47.0
+text = "Controls:"
+
+[node name="ControlsContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_left = 61.0
+margin_top = 18.0
+margin_right = 147.0
+margin_bottom = 62.0
+
+[node name="key1" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ControlsContainer"]
+margin_right = 86.0
+margin_bottom = 20.0
+text = "WASD, Q"
+
+[node name="key2" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ControlsContainer"]
+margin_top = 24.0
+margin_right = 86.0
+margin_bottom = 44.0
+text = "arrows, DEL"
+
+[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 147.0
+margin_bottom = 112.0
+text = "Cancel"
+[connection signal="pressed" from="PanelContainer/VBoxContainer/GridContainer/ControlsContainer/key1" to="." method="_on_click" binds= [ "key1" ]]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/GridContainer/ControlsContainer/key2" to="." method="_on_click" binds= [ "key2" ]]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Cancel" to="." method="queue_free"]
