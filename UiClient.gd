@@ -1,6 +1,6 @@
 extends Control
 
-signal req_add_player(player_name)
+signal req_add_player(player_name, controls)
 signal req_remove_player(player_name)
 signal req_kick_client(client_id)
 
@@ -60,8 +60,8 @@ func _on_add_pressed():
 	get_tree().root.add_child(popup)
 	popup.popup_centered_minsize()
 
-func _on_add_player(player_name):
-	emit_signal("req_add_player", player_name)
+func _on_add_player(player_name, controls):
+	emit_signal("req_add_player", player_name, controls)
 
 func _on_kick_pressed():
 	emit_signal("req_kick_client", client_id)

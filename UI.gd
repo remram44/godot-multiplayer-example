@@ -3,7 +3,7 @@ extends Control
 signal req_connect(address)
 signal req_host_server()
 signal req_disconnect()
-signal req_add_player(player_name)
+signal req_add_player(player_name, controls)
 signal req_remove_player(player_name)
 signal req_kick_client(client_id)
 signal req_start()
@@ -77,8 +77,8 @@ func remove_player(client_id, player_name):
 	var client = clients[client_id]
 	client.remove_player(player_name)
 
-func _on_req_add_player(player_name):
-	emit_signal("req_add_player", player_name)
+func _on_req_add_player(player_name, controls):
+	emit_signal("req_add_player", player_name, controls)
 
 func _on_req_remove_player(player_name):
 	emit_signal("req_remove_player", player_name)

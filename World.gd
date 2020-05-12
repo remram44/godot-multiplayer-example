@@ -71,8 +71,8 @@ func _on_req_disconnect():
 func _on_req_kick_client(client_id):
 	print("req: kick client %s" % client_id)
 
-func _on_req_add_player(player_name):
-	print("req: add player %s" % player_name)
+func _on_req_add_player(player_name, controls):
+	print("req: add player %s %s" % [player_name, controls])
 
 func _on_req_remove_player(player_name):
 	print("req: remove player %s" % player_name)
