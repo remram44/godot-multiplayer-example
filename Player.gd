@@ -22,7 +22,6 @@ func _physics_process(_delta):
 		var jump = Input.is_action_just_pressed("%s_jump" % controls)
 
 		if get_tree().has_network_peer():
-			# FIXME: Does this work if it's our ID? Does it need '~sync'?
 			character.rpc_id(1, "set_input", movement, jump)
 		else:
 			character.set_input(movement, jump)
